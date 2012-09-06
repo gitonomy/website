@@ -1,0 +1,10 @@
+{
+    "name": "gitonomy/website",
+    "description": "Sourcecode of gitonomy.com",
+
+    "require": {
+        "silex/silex": "dev-master",
+        "twig/twig": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
