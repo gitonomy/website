@@ -4,7 +4,8 @@
 
     "require": {
         "silex/silex": "dev-master",
-        "twig/twig": "dev-master"
+        "twig/twig": "dev-master",
+        "symfony/twig-bridge": "dev-master"
     },
     "minimum-stability": "dev"
 }

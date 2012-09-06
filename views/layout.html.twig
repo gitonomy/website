@@ -8,7 +8,17 @@
         {% block before_head_end '' %}
     </head>
     <body>
-        <div class="container">
+        <div class="container" style="padding-top:10px">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="{{ path('homepage') }}">Gitonomy</a>
+                    <ul class="nav">
+                        <li{% if active == "home" %} class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
+                        <li{% if active == "features" %} class="active"{% endif %}><a href="{{ path('features') }}">Features</a></li>
+                        <li><a style="color: #0972db" href="http://github.com/Gitonomy/gitonomy">Github</a></li>
+                    </ul>
+                </div>
+            </div>
             {% block content '' %}
         </div>
         <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>

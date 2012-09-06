@@ -1,4 +1,5 @@
 {% extends "layout.html.twig" %}
+{% set active = "home" %}
 
 {% block title "Gitonomy - Git repositories inside your infrastructure" %}
 
@@ -17,15 +18,6 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page-header">
-        <h1>
-            Gitonomy
-            <small>
-                Git repositories inside your infrastructure
-                <a style="float: right" class="btn btn-primary" href="http://github.com/gitonomy/gitonomy">View on Github</a>
-            </small>
-        </h1>
-    </div>
     {% include "blocks/homepage_carousel.html.twig" %}
     {% include "blocks/homepage_footer.html.twig" %}
 {% endblock %}

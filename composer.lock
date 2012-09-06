@@ -1,5 +1,5 @@
 {
-    "hash": "ddf6fcf4e7625ca04189efd315db6ec0",
+    "hash": "efa6acd615024fd0a1121dc4b84e0727",
     "packages": [
         {
             "package": "pimple/pimple",
@@ -12,12 +12,6 @@
             "version": "dev-master",
             "source-reference": "db836b8cfadc0f39dacafa2bf311a1ab603600bb",
             "commit-date": "1343051648"
-        },
-        {
-            "package": "silex/silex",
-            "version": "dev-master",
-            "alias-pretty-version": "1.0.x-dev",
-            "alias-version": "1.0.9999999.9999999-dev"
         },
         {
             "package": "silex/silex",
@@ -44,6 +38,12 @@
             "version": "v2.1.0"
         },
         {
+            "package": "symfony/twig-bridge",
+            "version": "dev-master",
+            "source-reference": "9f80c8399587d4cddb111472767f5aed54724729",
+            "commit-date": "1346957130"
+        },
+        {
             "package": "twig/twig",
             "version": "dev-master",
             "alias-pretty-version": "1.9.x-dev",
@@ -63,6 +63,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "silex/silex": 20,
-        "twig/twig": 20
+        "twig/twig": 20,
+        "symfony/twig-bridge": 20
     }
 }

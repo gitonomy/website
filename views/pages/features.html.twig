@@ -1,16 +1,8 @@
 {% extends "layout.html.twig" %}
+{% set active = "features" %}
 
 {% block title "Gitonomy - Features" %}
 
 {% block content %}
-    <div class="page-header">
-        <h1>
-            Gitonomy
-            <small>
-                Features
-                <a style="float: right" class="btn btn-primary" href="http://github.com/gitonomy/gitonomy">View on Github</a>
-            </small>
-        </h1>
-    </div>
     {% include "blocks/features_list.html.twig" %}
 {% endblock %}
