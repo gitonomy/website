@@ -17,4 +17,9 @@ $app->get('/', function() use($app) {
 })
 ->bind('homepage');
 
+$app->get('/features', function() use($app) {
+    return $app['twig']->render('pages/features.html.twig');
+})
+->bind('features');
+
 $app->run();
