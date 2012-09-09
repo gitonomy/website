@@ -1,6 +1,12 @@
 {
-    "hash": "efa6acd615024fd0a1121dc4b84e0727",
+    "hash": "6dcca6be56248a0f73a33483180e9908",
     "packages": [
+        {
+            "package": "fabpot/sphinx-php",
+            "version": "master",
+            "source-reference": "master",
+            "commit-date": "1338011792"
+        },
         {
             "package": "pimple/pimple",
             "version": "dev-master",
@@ -16,16 +22,26 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "source-reference": "73b18ef69f74d878465dba0836ad96affc6c820c",
-            "commit-date": "1346766167"
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
+        },
+        {
+            "package": "silex/silex",
+            "version": "dev-master",
+            "source-reference": "ad563dde113092aa603e2b399d10ea43aece8006",
+            "commit-date": "1347084669"
         },
         {
             "package": "symfony/event-dispatcher",
-            "version": "v2.1.0"
+            "version": "2.1.x-dev",
+            "source-reference": "v2.1.0-RC2",
+            "commit-date": "1345643321"
         },
         {
             "package": "symfony/http-foundation",
-            "version": "v2.1.0"
+            "version": "2.1.x-dev",
+            "source-reference": "v2.1.0",
+            "commit-date": "1346761482"
         },
         {
             "package": "symfony/http-kernel",
@@ -35,7 +51,9 @@
         },
         {
             "package": "symfony/routing",
-            "version": "v2.1.0"
+            "version": "2.1.x-dev",
+            "source-reference": "v2.1.0",
+            "commit-date": "1346859854"
         },
         {
             "package": "symfony/twig-bridge",
@@ -52,8 +70,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "459720ff3b74ee0c0d159277c6f2f5df89d8a4f6",
-            "commit-date": "1346397138"
+            "source-reference": "68b8c4619c5bbe82bd345fe56070dec8c356610a",
+            "commit-date": "1347025342"
         }
     ],
     "packages-dev": null,
@@ -64,6 +82,7 @@
     "stability-flags": {
         "silex/silex": 20,
         "twig/twig": 20,
-        "symfony/twig-bridge": 20
+        "symfony/twig-bridge": 20,
+        "fabpot/sphinx-php": 20
     }
 }

@@ -5,7 +5,23 @@
     "require": {
         "silex/silex": "dev-master",
         "twig/twig": "dev-master",
-        "symfony/twig-bridge": "dev-master"
+        "symfony/twig-bridge": "dev-master",
+        "fabpot/sphinx-php": "dev-master"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "fabpot/sphinx-php",
+                "version": "master",
+                "source": {
+                    "url":       "https://github.com/fabpot/sphinx-php.git",
+                    "type":      "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ]
 }
