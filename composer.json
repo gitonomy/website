@@ -10,6 +10,12 @@
     },
     "minimum-stability": "dev",
 
+    "autoload": {
+        "psr-0" : {
+            "Gitonomy\\Documentation" : "src/"
+        }
+    },
+
     "repositories": [
         {
             "type": "package",

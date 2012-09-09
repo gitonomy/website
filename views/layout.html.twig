@@ -15,6 +15,15 @@
                     <ul class="nav">
                         <li{% if active == "home" %} class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
                         <li{% if active == "features" %} class="active"{% endif %}><a href="{{ path('features') }}">Features</a></li>
+                        <li class="dropdown{% if active == "documentation" %} active{% endif %}">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Documentation
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('documentation', {project: 'gitlib', version: 'master', path: ''}) }}">gitlib</a></li>
+                            </ul>
+                        </li>
                         <li><a style="color: #0972db" href="http://github.com/Gitonomy/gitonomy">Github</a></li>
                     </ul>
                 </div>

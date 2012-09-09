@@ -13,12 +13,9 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
               'sphinx.ext.viewcode', 'sphinx.ext.extlinks', 'sensio.sphinx.refinclude',
               'sensio.sphinx.configurationblock', 'sensio.sphinx.phpcode']
 
-templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = ['_build']
-
-html_copy_source = True
 
 lexers['php'] = PhpLexer(startinline=True)
 lexers['php-annotations'] = PhpLexer(startinline=True)

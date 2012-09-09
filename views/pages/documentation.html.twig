@@ -1,0 +1,45 @@
+{% extends "layout.html.twig" %}
+
+{% set active = "documentation" %}
+
+{% block title document.title ~ ' - ' ~ project ~ ' - Documentation' %}
+
+{% block before_head_end %}
+    <link rel="stylesheet" href="/css/documentation.css" />
+{% endblock %}
+
+{% block content %}
+    {% if path == 'index' %}
+        {% include "blocks/doc_breadcrumbs.html.twig" with { breadcrumbs: [
+            { text: project, path: null }
+        ] } only %}
+    {% else %}
+        {% set crumbs = [ {text: project, path: path('documentation', {project: project, version: version, path: ''}) } ] %}
+        {% set crumbs = crumbs|merge(document.parents) %}
+        {% set crumbs = crumbs|merge([{ text: document.title, path: null }]) %}
+        {% include "blocks/doc_breadcrumbs.html.twig" with { breadcrumbs: crumbs } %}
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                {% if document.hasNext or document.hasPrev %}
+                    <ul class="pager">
+                        {% if document.hasPrev %}
+                            <li style="previous"><a class="pull-left" href="{{ document.prevLink }}">&larr; {{ document.prevTitle }}</a></li>
+                        {% endif %}
+                        {% if document.hasNext %}
+                            <li class="next"><a class="pull-right" href="{{ document.nextLink }}">{{ document.nextTitle }} &rarr;</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+                {{ document.body | raw }}
+            </div>
+            <div class="span4">
+                <div class="well">
+                    <h2>Table of contents</h2>
+                    {{ document.toc | raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

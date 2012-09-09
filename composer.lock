@@ -1,5 +1,5 @@
 {
-    "hash": "6dcca6be56248a0f73a33483180e9908",
+    "hash": "6918c9b0fd498afd6c5b4e2aaa04a260",
     "packages": [
         {
             "package": "fabpot/sphinx-php",
@@ -18,12 +18,6 @@
             "version": "dev-master",
             "source-reference": "db836b8cfadc0f39dacafa2bf311a1ab603600bb",
             "commit-date": "1343051648"
-        },
-        {
-            "package": "silex/silex",
-            "version": "dev-master",
-            "alias-pretty-version": "1.0.x-dev",
-            "alias-version": "1.0.9999999.9999999-dev"
         },
         {
             "package": "silex/silex",
