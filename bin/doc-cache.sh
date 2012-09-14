@@ -12,7 +12,7 @@ fi
 # Configuration, according to project
 if [ "$1" == "gitlib" ]; then
     VERSIONS="master"
-    URL="git@github.com:gitonomy/gitlib.git"
+    URL="https://github.com/gitonomy/gitlib.git"
     REPOSITORY_DIR="doc"
     PROJECT="gitlib"
 elif [ "$1" == "gitonomy" ]; then
