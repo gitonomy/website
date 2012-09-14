@@ -2,7 +2,7 @@
 
 {% set active = "documentation" %}
 
-{% block title document.title ~ ' - ' ~ project ~ ' - Documentation' %}
+{% block title (document.title ~ ' - ' ~ project ~ ' - Documentation') | raw %}
 
 {% block before_head_end %}
     <link rel="stylesheet" href="/css/documentation.css" />
