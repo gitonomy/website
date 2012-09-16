@@ -1,0 +1,39 @@
+{% extends "layout.html.twig" %}
+{% set active = "demo" %}
+
+{% block title "Gitonomy - Demo" %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Gitonomy</h1>
+    </div>
+    <div class="row">
+        <div class="span3">
+            <h2>Server</h2>
+            <p><a class="btn btn-danger" href="http://rouge.gitonomy.com"><i class="icon-globe icon-white"></i> Rouge</a></p>
+        </div>
+        <div class="span6">
+            <h2>Accounts</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>admin</td>
+                        <td>admin</td>
+                        <td>Administrator</td>
+                    </tr>
+                    <tr>
+                        <td>user</td>
+                        <td>user</td>
+                        <td>Regular user</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

@@ -26,6 +26,11 @@ $app->get('/', function() use($app) {
 })
 ->bind('homepage');
 
+$app->get('/demo', function() use($app) {
+    return $app['twig']->render('pages/demo.html.twig');
+})
+->bind('demo');
+
 $app->get('/features', function() use($app) {
     return $app['twig']->render('pages/features.html.twig');
 })
