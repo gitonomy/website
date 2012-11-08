@@ -5,30 +5,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="/css/globalmenu.css" />
+        <link rel="stylesheet" href="/css/font.css" />
         {% block before_head_end '' %}
     </head>
     <body>
-        <div class="container" style="padding-top:10px">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a class="brand" href="{{ path('homepage') }}">Gitonomy</a>
-                    <ul class="nav">
-                        <li{% if active == "home" %} class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
-                        <li{% if active == "features" %} class="active"{% endif %}><a href="{{ path('features') }}">Features</a></li>
-                        <li{% if active == "demo" %} class="active"{% endif %}><a href="{{ path('demo') }}">Demo</a></li>
-                        <li class="dropdown{% if active == "documentation" %} active{% endif %}">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Documentation
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ path('documentation', {project: 'gitlib', version: 'master', path: ''}) }}">gitlib</a></li>
-                            </ul>
-                        </li>
-                        <li><a style="color: #0972db" href="http://github.com/Gitonomy/gitonomy">Github</a></li>
-                    </ul>
-                </div>
+        <div class="header-container">
+            <div class="container">
+                {% block before_menu '' %}
+                <ul id="global-menu">
+                    <li>
+                        <a href="{{ path('homepage') }}"{% if active == "home" %} class="active"{% endif %}>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('features') }}"{% if active == "features" %} class="active"{% endif %}>
+                            Features
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('demo') }}"{% if active == "demo" %} class="active"{% endif %}>
+                            Demo
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"{% if active == "documentation" %} class="active"{% endif %}>
+                            Documentation
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('documentation', {project: 'gitlib', version: 'master', path: ''}) }}">gitlib</a></li>
+                        </ul>
+                    </li>
+                    <li class="pull-right">
+                        <a href="http://github.com/Gitonomy/gitonomy">
+                            <i class="symbol">github</i> Github
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </div>
+        <div class="container" style="padding-top:10px">
             {% block content '' %}
         </div>
         <script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
