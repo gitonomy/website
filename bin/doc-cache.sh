@@ -16,8 +16,10 @@ if [ "$1" == "gitlib" ]; then
     REPOSITORY_DIR="doc"
     PROJECT="gitlib"
 elif [ "$1" == "gitonomy" ]; then
-    echo "Not implemented yet..."
-    exit 1
+    VERSIONS="master"
+    URL="https://github.com/gitonomy/gitonomy.git"
+    REPOSITORY_DIR="doc"
+    PROJECT="gitonomy"
 else
     echo "Unknown project"
     exit 1

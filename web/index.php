@@ -11,6 +11,11 @@ $app['gitlib.documentation'] = function ($app) {
         'master' => __DIR__.'/../cache/doc/gitlib/json/master'
     ));
 };
+$app['gitonomy.documentation'] = function ($app) {
+    return new Documentation(array(
+        'master' => __DIR__.'/../cache/doc/gitonomy/json/master'
+    ));
+};
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
@@ -38,7 +43,7 @@ $app->get('/features', function() use($app) {
 
 
 $app->get('/doc/{project}/{version}/{path}', function ($project, $version, $path) use ($app) {
-        if (!in_array($project, array('gitlib'))) {
+        if (!in_array($project, array('gitlib', 'gitonomy'))) {
             throw new \RuntimeException('Project not found');
         }
 

@@ -7,11 +7,19 @@
     <script type="text/javascript">
         $(document).ready(function (){
             $("body").keydown(function(e) {
-              if(e.keyCode == 37) {
-                $("#carousel-sshot").carousel('prev');
-              } else if(e.keyCode == 39) {
-                $("#carousel-sshot").carousel('next');
-              }
+                if(e.keyCode == 37) {
+                    $("#carousel-sshot").carousel('prev');
+                } else if(e.keyCode == 39) {
+                    $("#carousel-sshot").carousel('next');
+                }
+            });
+
+            $("#global-menu > li > a").click(function(event) {
+                event.preventDefault();
+
+                $("#carousel-sshot").slideUp(function() {
+                    window.location = $(event.target).attr('href');
+                });
             });
         });
     </script>
