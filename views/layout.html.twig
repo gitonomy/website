@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="/css/globalmenu.css" />
+        <link rel="stylesheet" href="/css/features.css" />
         <link rel="stylesheet" href="/css/font.css" />
         {% block before_head_end '' %}
     </head>
@@ -33,6 +34,11 @@
                         <li>
                             <a href="{{ path('documentation', {project: 'gitonomy', version: 'master', path: ''}) }}"{% if active == "doc_gitonomy" %} class="active"{% endif %}>
                                 doc
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.gitonomy.com">
+                                blog
                             </a>
                         </li>
                         <li>

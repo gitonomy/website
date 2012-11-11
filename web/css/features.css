@@ -1,0 +1,12 @@
+h2 {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  height: 50px;
+  font-family: tellural;
+}
+
+.center {
+    text-align: center;
+    margin: 100px 0;
+}
