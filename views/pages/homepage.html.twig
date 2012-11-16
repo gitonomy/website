@@ -6,6 +6,10 @@
 {% block before_body_end %}
     <script type="text/javascript">
         $(document).ready(function (){
+            $("#carousel-sshot").carousel({
+                interval: 4000
+            });
+
             $("body").keydown(function(e) {
                 if(e.keyCode == 37) {
                     $("#carousel-sshot").carousel('prev');
