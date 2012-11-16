@@ -17,34 +17,22 @@
                 {% spaceless %}
                     <ul id="global-menu">
                         <li>
-                            <a href="{{ path('homepage') }}"{% if active == "home" %} class="active"{% endif %}>
-                                Gitonomy
-                            </a>
+                            <a href="{{ path('homepage') }}"{% if active == "home" %} class="active"{% endif %}>Gitonomy</a>
                         </li>
                         <li>
-                            <a href="{{ path('features') }}"{% if active == "features" %} class="active"{% endif %}>
-                                features
-                            </a>
+                            <a href="{{ path('features') }}"{% if active == "features" %} class="active"{% endif %}>features</a>
                         </li>
                         <li>
-                            <a href="{{ path('demo') }}"{% if active == "demo" %} class="active"{% endif %}>
-                                demo
-                            </a>
+                            <a href="{{ path('demo') }}"{% if active == "demo" %} class="active"{% endif %}>demo</a>
                         </li>
                         <li>
-                            <a href="{{ path('documentation', {project: 'gitonomy', version: 'master', path: ''}) }}"{% if active == "doc_gitonomy" %} class="active"{% endif %}>
-                                doc
-                            </a>
+                            <a href="{{ path('documentation', {project: 'gitonomy', version: 'master', path: ''}) }}"{% if active == "doc_gitonomy" %} class="active"{% endif %}>doc</a>
                         </li>
                         <li>
-                            <a href="http://blog.gitonomy.com">
-                                blog
-                            </a>
+                            <a href="http://blog.gitonomy.com">blog</a>
                         </li>
                         <li>
-                            <a href="{{ path('documentation', {project: 'gitlib', version: 'master', path: ''}) }}"{% if active == "doc_gitlib" %} class="active"{% endif %}>
-                                gitlib
-                            </a>
+                            <a href="{{ path('documentation', {project: 'gitlib', version: 'master', path: ''}) }}"{% if active == "doc_gitlib" %} class="active"{% endif %}>gitlib</a>
                         </li>
                         <li class="pull-right">
                             <a href="http://github.com/Gitonomy/gitonomy">

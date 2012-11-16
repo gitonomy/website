@@ -18,11 +18,11 @@
                 }
             });
 
-            $("#global-menu > li > a").click(function(event) {
+            $(document).on('click', '#global-menu > li > a', function(event) {
                 event.preventDefault();
 
                 $("#carousel-sshot").slideUp(function() {
-                    window.location = $(event.target).attr('href');
+                    window.location = $(event.currentTarget).attr('href');
                 });
             });
         });
