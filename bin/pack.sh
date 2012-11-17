@@ -26,8 +26,8 @@ git checkout origin/$1
 
 cd ../../.. # back to project root
 
-if [ ! -d web/download ]; then
-    mkdir web/download
+if [ ! -d web/downloads ]; then
+    mkdir web/downloads
 fi
 
-mv cache/pack/repository/pack.tar.gz web/download/$1.tar.gz
+mv cache/pack/repository/pack.tar.gz web/downloads/$1.tar.gz
