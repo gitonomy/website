@@ -26,6 +26,9 @@
                             <a href="{{ path('demo') }}"{% if active == "demo" %} class="active"{% endif %}>demo</a>
                         </li>
                         <li>
+                            <a href="{{ path('download') }}"{% if active == "download" %} class="active"{% endif %}>download</a>
+                        </li>
+                        <li>
                             <a href="{{ path('documentation', {project: 'gitonomy', version: 'master', path: ''}) }}"{% if active == "doc_gitonomy" %} class="active"{% endif %}>doc</a>
                         </li>
                         <li>
@@ -35,14 +38,10 @@
                             <a href="{{ path('documentation', {project: 'gitlib', version: 'master', path: ''}) }}"{% if active == "doc_gitlib" %} class="active"{% endif %}>gitlib</a>
                         </li>
                         <li class="pull-right">
-                            <a href="http://github.com/Gitonomy/gitonomy">
-                                <i class="symbol">github</i>
-                            </a>
+                            <a href="http://github.com/Gitonomy/gitonomy"><i class="symbol">github</i></a>
                         </li>
                         <li class="pull-right">
-                            <a href="http://twitter.com/Gitonomy">
-                                <i class="symbol">twitter</i>
-                            </a>
+                            <a href="http://twitter.com/Gitonomy"><i class="symbol">twitter</i></a>
                         </li>
                     </ul>
                 {% endspaceless %}

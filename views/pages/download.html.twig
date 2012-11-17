@@ -1,0 +1,23 @@
+{% extends "layout.html.twig" %}
+{% set active = "download" %}
+
+{% block title "Gitonomy - Download" %}
+
+{% block content %}
+    <h2>Download</h2>
+    <p>Pick-up a version below, depending of how confort you feel with Gitonomy.</p>
+    <div class="row">
+        <div class="span4">
+            <h3>Stable release</h3>
+            <p>
+                <a class="btn btn-large btn-success" href="/download/0.2.tar.gz"><i class="icon-file icon-white"></i> Download stable version (0.2)</a>
+            </p>
+        </div>
+        <div class="span4">
+            <h3>Development version</h3>
+            <p>
+                <a class="btn btn-large" href="/download/master.tar.gz"><i class="icon-file"></i> Download dev. version (master)</a></p>
+            </p>
+        </div>
+    </div>
+{% endblock %}

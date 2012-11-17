@@ -36,6 +36,11 @@ $app->get('/demo', function() use($app) {
 })
 ->bind('demo');
 
+$app->get('/download', function() use($app) {
+    return $app['twig']->render('pages/download.html.twig');
+})
+->bind('download');
+
 $app->get('/features', function() use($app) {
     return $app['twig']->render('pages/features.html.twig');
 })
