@@ -21,7 +21,12 @@ else
     git fetch origin
 fi
 
-git checkout origin/$1
+tag_count="$(git tag -l $1 | wc -l)"
+if [ $tag_count == 1 ]; then
+    git checkout $1
+else
+    git checkout origin/$1
+fi
 ./pack.sh
 
 cd ../../.. # back to project root
