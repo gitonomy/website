@@ -1,5 +1,5 @@
 {
-    "hash": "6918c9b0fd498afd6c5b4e2aaa04a260",
+    "hash": "e43536e31056392018a0d551791af139",
     "packages": [
         {
             "name": "fabpot/sphinx-php",
@@ -9,9 +9,9 @@
                 "url": "https://github.com/fabpot/sphinx-php.git",
                 "reference": "master"
             },
+            "time": "2012-05-26 05:56:32",
             "type": "library",
-            "installation-source": "source",
-            "time": "2012-05-26 05:56:32"
+            "installation-source": "source"
         },
         {
             "name": "pimple/pimple",
@@ -139,6 +139,54 @@
             "keywords": [
                 "microframework"
             ]
+        },
+        {
+            "name": "symfony/console",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console",
+                "reference": "003a487a674175a1d2e62f205ecd91ffe85554b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Console/archive/003a487a674175a1d2e62f205ecd91ffe85554b1.zip",
+                "reference": "003a487a674175a1d2e62f205ecd91ffe85554b1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2012-11-19 12:58:52",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -499,6 +547,7 @@
         "silex/silex": 20,
         "twig/twig": 20,
         "symfony/twig-bridge": 20,
+        "symfony/console": 20,
         "fabpot/sphinx-php": 20
     }
 }

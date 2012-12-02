@@ -6,6 +6,7 @@
         "silex/silex": "dev-master",
         "twig/twig": "dev-master",
         "symfony/twig-bridge": "dev-master",
+        "symfony/console": "dev-master",
         "fabpot/sphinx-php": "dev-master"
     },
     "minimum-stability": "dev",
