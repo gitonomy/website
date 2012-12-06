@@ -28,8 +28,7 @@ $console->register( 'generate-changelog' )
 
             $output->writeln(sprintf('Fetching "%s"...', $url));
 
-            $client  = new Curl();
-            $browser = new Browser($client);
+            $browser = new Browser(new Curl());
             $browser->get($url);
 
             $output->writeln('Converting to xml...');
@@ -62,8 +61,6 @@ $console->register( 'generate-changelog' )
             $versions = array();
             $nodes = $xpath->query(CssSelector::toXPath('document > bullet_list > list_item'));
 
-            $lastChange = null;
-
             foreach ($nodes as $node) {
                 $version = $node->getElementsByTagName('paragraph')->item(0)->textContent;
                 preg_match('#(?P<version>[^/]+) \((?P<date>[0-9]{4}-[0-9]{2}-[0-9]{2})\)#', $version, $versionData);
@@ -73,13 +70,6 @@ $console->register( 'generate-changelog' )
                     'date'     => $versionData['date'],
                     'features' => array(),
                 );
-
-                if (null === $lastChange) {
-                    $lastChange = array(
-                        'version'  => $versionData['version'],
-                        'date'     => $versionData['date'],
-                    );
-                }
 
                 foreach ($node->getElementsByTagName('list_item') as $childNode) {
                     $feature = $childNode->getElementsByTagName('paragraph')->item(0)->textContent;
