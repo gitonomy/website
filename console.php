@@ -14,12 +14,12 @@ use Symfony\Component\CssSelector\CssSelector;
 
 $console = new Application('ProjectName', '0.1');
 
-$console->register( 'generate-version' )
+$console->register( 'generate-changelog' )
     ->setDefinition(array(
         new InputOption('url', null, InputOption::VALUE_OPTIONAL, 'URL of markdown file'),
     ))
-    ->setDescription('Generate the version page from a changelog markdown file')
-    ->setHelp('Usage: <info>./console.php generate-version [--url=<file>]</info>')
+    ->setDescription('Generate the changelog page from a changelog markdown file')
+    ->setHelp('Usage: <info>./console.php generate-changelog [--url=<file>]</info>')
     ->setCode(
         function(InputInterface $input, OutputInterface $output) {
             if (null === $url = $input->getOption('url')) {
@@ -32,6 +32,8 @@ $console->register( 'generate-version' )
             $browser = new Browser($client);
             $browser->get($url);
 
+            $output->writeln('Converting to xml...');
+
             $command = 'rst2xml --no-toc-backlinks --no-doc-title --no-generator --no-source-link --no-footnote-backlinks --strip-comments';
 
             $ioDescription = array(
@@ -40,9 +42,11 @@ $console->register( 'generate-version' )
             );
 
             $proc = proc_open($command, $ioDescription, $pipes, '/tmp', NULL);
+
             if (!is_resource($proc)) {
-                throw new \LogicException('bla');
+                throw new \LogicException('proc_open failed');
             }
+
             fwrite($pipes[0], $browser->getLastResponse()->getContent());
             fflush($pipes[0]);
             fclose($pipes[0]);
@@ -91,8 +95,9 @@ $console->register( 'generate-version' )
 
                 array_push($versions, $versionDetails);
             }
-            // die(var_dump($versions))
-            file_put_contents(__DIR__.'/cache/last_version.json', json_encode($lastChange));
+
+            $output->writeln('Generating cache...');
+
             file_put_contents(__DIR__.'/cache/changelog.json', json_encode($versions));
         }
     );
