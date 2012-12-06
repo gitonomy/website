@@ -1,5 +1,5 @@
 {
-    "hash": "e43536e31056392018a0d551791af139",
+    "hash": "a9633ef9f543556b91e9a2a30b68f7d2",
     "packages": [
         {
             "name": "fabpot/sphinx-php",
@@ -12,6 +12,52 @@
             "time": "2012-05-26 05:56:32",
             "type": "library",
             "installation-source": "source"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/kriswallsmith/Buzz.git",
+                "reference": "988bf14201ffbed940f23b42f87302e6adec4c21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kriswallsmith/Buzz/archive/988bf14201ffbed940f23b42f87302e6adec4c21.zip",
+                "reference": "988bf14201ffbed940f23b42f87302e6adec4c21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "time": "2012-08-17 12:23:33",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ]
         },
         {
             "name": "pimple/pimple",
@@ -66,12 +112,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Silex.git",
-                "reference": "5cfa54fce1e2c6c1072def1b79bfb69f4fbdf97e"
+                "reference": "7e5862934aa831ededc9ca188a56816dc46e70b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Silex/archive/5cfa54fce1e2c6c1072def1b79bfb69f4fbdf97e.zip",
-                "reference": "5cfa54fce1e2c6c1072def1b79bfb69f4fbdf97e",
+                "url": "https://github.com/fabpot/Silex/archive/7e5862934aa831ededc9ca188a56816dc46e70b4.zip",
+                "reference": "7e5862934aa831ededc9ca188a56816dc46e70b4",
                 "shasum": ""
             },
             "require": {
@@ -106,7 +152,7 @@
                 "symfony/css-selector": ">=2.1,<2.3-dev",
                 "symfony/dom-crawler": ">=2.1,<2.3-dev"
             },
-            "time": "2012-11-30 10:40:25",
+            "time": "2012-12-02 18:04:58",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -189,6 +235,54 @@
             "homepage": "http://symfony.com"
         },
         {
+            "name": "symfony/css-selector",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/CssSelector",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/CssSelector",
+                "reference": "3436f37042be94538f9653dabf971d020d2a3b95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/CssSelector/archive/3436f37042be94538f9653dabf971d020d2a3b95.zip",
+                "reference": "3436f37042be94538f9653dabf971d020d2a3b95",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2012-11-19 12:58:52",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "http://symfony.com"
+        },
+        {
             "name": "symfony/event-dispatcher",
             "version": "dev-master",
             "target-dir": "Symfony/Component/EventDispatcher",
@@ -250,18 +344,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation",
-                "reference": "caf375ec9520a19cc28d9e81f7dadb92a7c30eb4"
+                "reference": "c209d2d5b6c99121d4f3144a41e449200f4c1477"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/HttpFoundation/archive/caf375ec9520a19cc28d9e81f7dadb92a7c30eb4.zip",
-                "reference": "caf375ec9520a19cc28d9e81f7dadb92a7c30eb4",
+                "url": "https://github.com/symfony/HttpFoundation/archive/c209d2d5b6c99121d4f3144a41e449200f4c1477.zip",
+                "reference": "c209d2d5b6c99121d4f3144a41e449200f4c1477",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2012-11-30 22:41:06",
+            "time": "2012-12-03 13:31:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -370,12 +464,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing",
-                "reference": "1198e4e883628bc1dec64b75e7ec51142c7bff8b"
+                "reference": "8f785afd8ece16f7e5e502db1c43ebb91676f3d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Routing/archive/1198e4e883628bc1dec64b75e7ec51142c7bff8b.zip",
-                "reference": "1198e4e883628bc1dec64b75e7ec51142c7bff8b",
+                "url": "https://github.com/symfony/Routing/archive/8f785afd8ece16f7e5e502db1c43ebb91676f3d8.zip",
+                "reference": "8f785afd8ece16f7e5e502db1c43ebb91676f3d8",
                 "shasum": ""
             },
             "require": {
@@ -392,7 +486,7 @@
                 "symfony/config": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "2012-11-28 11:31:05",
+            "time": "2012-12-03 13:56:49",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -548,6 +642,8 @@
         "twig/twig": 20,
         "symfony/twig-bridge": 20,
         "symfony/console": 20,
-        "fabpot/sphinx-php": 20
+        "symfony/css-selector": 20,
+        "fabpot/sphinx-php": 20,
+        "kriswallsmith/buzz": 20
     }
 }

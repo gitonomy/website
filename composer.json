@@ -7,7 +7,9 @@
         "twig/twig": "dev-master",
         "symfony/twig-bridge": "dev-master",
         "symfony/console": "dev-master",
-        "fabpot/sphinx-php": "dev-master"
+        "symfony/css-selector": "dev-master",
+        "fabpot/sphinx-php": "dev-master",
+        "kriswallsmith/buzz": "dev-master"
     },
     "minimum-stability": "dev",
 
