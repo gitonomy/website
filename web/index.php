@@ -2,6 +2,9 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+use Symfony\Component\HttpFoundation\Response;
+
+use Gitonomy\ChangeLog\ChangeLogFactory;
 use Gitonomy\Documentation\Documentation;
 
 $app = new Silex\Application();
@@ -70,6 +73,17 @@ $app->get('/doc/{project}/{version}/{path}', function ($project, $version, $path
     })
     ->assert('path', '.*')
     ->bind('documentation')
+;
+
+$app->get('/version.json', function () {
+        $changeLog      = ChangeLogFactory::getCache();
+        $currentVersion = current($changeLog->getVersions());
+
+        return json_encode(array(
+            'version' => $currentVersion->getVersion(),
+            'date'    => $currentVersion->getDate()->format('Y-m-d'),
+        ));
+    })
 ;
 
 $app->run();

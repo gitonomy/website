@@ -20,7 +20,8 @@ class XmlToChangeLogTransformer
             $version = $node->getElementsByTagName('paragraph')->item(0)->textContent;
             preg_match('#(?P<version>[^/]+) \((?P<date>[0-9]{4}-[0-9]{2}-[0-9]{2})\)#', $version, $versionData);
 
-            $version = new Version($versionData['version'], $versionData['date']);
+            $date    = \DateTime::createFromFormat('Y-m-d', $versionData['date']);
+            $version = new Version($versionData['version'], $date);
             $changeLog->addVersion($version);
 
             foreach ($node->getElementsByTagName('list_item') as $childNode) {

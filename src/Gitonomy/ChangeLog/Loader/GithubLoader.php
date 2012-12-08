@@ -16,7 +16,13 @@ class GithubLoader
         }
 
         $browser = new Browser(new Curl());
+        $browser->get($url);
+        $response = $browser->getLastResponse();
 
-        return $browser->get($url);
+        if (!$response->isSuccessful()) {
+            throw new \LogicException($response->getStatusCode().' - '.$response->getReasonPhrase());
+        }
+
+        return $response->getContent();
     }
 }

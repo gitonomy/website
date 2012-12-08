@@ -3,12 +3,24 @@
 namespace Gitonomy\ChangeLog;
 
 use Gitonomy\ChangeLog\ChangeLog;
+use Gitonomy\ChangeLog\Loader\CacheLoader;
 use Gitonomy\ChangeLog\Loader\GithubLoader;
 use Gitonomy\ChangeLog\Transformer\RstTransformer;
 use Gitonomy\ChangeLog\Transformer\ArrayTransformer;
 
 class ChangeLogFactory
 {
+    static function getCache()
+    {
+        $loader    = new CacheLoader();
+        $cache     = $loader->load();
+        $converter = new ArrayTransformer();
+        $array     = $converter->transform($cache);
+
+        return $converter->transform($cache);
+
+    }
+
     static function createFromGithub($url = null)
     {
         $loader = new GithubLoader();
