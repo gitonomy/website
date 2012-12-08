@@ -73,7 +73,7 @@ $console->register( 'generate-changelog' )
 
                 foreach ($node->getElementsByTagName('list_item') as $childNode) {
                     $feature = $childNode->getElementsByTagName('paragraph')->item(0)->textContent;
-                    preg_match('#(?P<level>\w+) (?P<feature>\w+)#', $feature, $featureData);
+                    preg_match('#(?P<level>\w+) (?P<feature>[^.]+)#', $feature, $featureData);
 
                     $featureDetails = array(
                         'level'   => $featureData['level'],
