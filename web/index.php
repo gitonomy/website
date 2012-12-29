@@ -2,9 +2,11 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Gitonomy\ChangeLog\ChangeLogFactory;
+use Gitonomy\ChangeLog\Filter\FilterFactory;
 use Gitonomy\Documentation\Documentation;
 
 $app = new Silex\Application();
@@ -76,14 +78,21 @@ $app->get('/doc/{project}/{version}/{path}', function ($project, $version, $path
 ;
 
 $app->get('/version.json', function () {
-        $changeLog      = ChangeLogFactory::getCache();
-        $currentVersion = current($changeLog->getVersions());
+    $changeLog      = ChangeLogFactory::getCache();
+    $currentVersion = current($changeLog->getVersions());
 
-        return json_encode(array(
-            'version' => $currentVersion->getVersion(),
-            'date'    => $currentVersion->getDate()->format('Y-m-d'),
-        ));
-    })
-;
+    return json_encode(array(
+        'version' => $currentVersion->getVersion(),
+        'date'    => $currentVersion->getDate(),
+    ));
+});
+
+
+$app->get('/changelog.json', function (Request $request) {
+    $filter    = FilterFactory::createFromRequest($request);
+    $changeLog = ChangeLogFactory::getCache($filter);
+
+    return json_encode(ChangeLogFactory::toArray($changeLog));
+});
 
 $app->run();

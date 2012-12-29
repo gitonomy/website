@@ -13,8 +13,7 @@ class ArrayTransformer
         $changeLog = new ChangeLog();
 
         foreach ($content as $data) {
-            $date = \DateTime::createFromFormat('Y-m-d', $data['date']);
-            $version = new Version($data['version'], $date);
+            $version = new Version($data['version'], $data['date']);
             $changeLog->addVersion($version);
 
             foreach ($data['features'] as $feature) {
@@ -32,7 +31,7 @@ class ArrayTransformer
         foreach ($changeLog->getVersions() as $version) {
             $data = array(
                 'version'  => $version->getVersion(),
-                'date'     => $version->getDate()->format('Y-m-d'),
+                'date'     => $version->getDate(),
                 'features' => array(),
             );
 

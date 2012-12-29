@@ -8,7 +8,7 @@ class Version
     protected $date;
     protected $features;
 
-    public function __construct($version, $date)
+    public function __construct($version, $date = null)
     {
         $this->version  = $version;
         $this->date     = $date;

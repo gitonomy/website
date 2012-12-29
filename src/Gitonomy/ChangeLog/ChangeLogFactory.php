@@ -3,6 +3,7 @@
 namespace Gitonomy\ChangeLog;
 
 use Gitonomy\ChangeLog\ChangeLog;
+use Gitonomy\ChangeLog\Filter\ChangeLogFilter;
 use Gitonomy\ChangeLog\Loader\CacheLoader;
 use Gitonomy\ChangeLog\Loader\GithubLoader;
 use Gitonomy\ChangeLog\Transformer\RstTransformer;
@@ -10,14 +11,15 @@ use Gitonomy\ChangeLog\Transformer\ArrayTransformer;
 
 class ChangeLogFactory
 {
-    static function getCache()
+    static function getCache(ChangeLogFilter $filter = null)
     {
-        $loader    = new CacheLoader();
-        $cache     = $loader->load();
-        $converter = new ArrayTransformer();
-        $array     = $converter->transform($cache);
+        $loader = new CacheLoader();
+        $cache  = $loader->load();
 
-        return $converter->transform($cache);
+        $converter = new ArrayTransformer();
+        $changeLog = $converter->transform($cache);
+
+        return null === $filter ? $changeLog : $filter->filter($changeLog);
 
     }
 
