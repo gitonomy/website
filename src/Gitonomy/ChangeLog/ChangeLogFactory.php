@@ -20,7 +20,6 @@ class ChangeLogFactory
         $changeLog = $converter->transform($cache);
 
         return null === $filter ? $changeLog : $filter->filter($changeLog);
-
     }
 
     static function createFromGithub($url = null)

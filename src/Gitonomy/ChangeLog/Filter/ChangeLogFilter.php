@@ -8,7 +8,7 @@ class ChangeLogFilter
 {
     protected $versionFilter;
 
-    public function __construct(VersionFilter $versionFilter = null)
+    public function __construct(VersionFilter $versionFilter)
     {
         $this->versionFilter = $versionFilter;
     }
@@ -18,8 +18,10 @@ class ChangeLogFilter
         $result = new ChangeLog();
 
         foreach ($changeLog->getVersions() as $version) {
-            if ($this->versionFilter->isTrue($version)) {
-                $result->addVersion($this->versionFilter->filter($version));
+            $filter = $this->versionFilter->filter($version);
+
+            if (null !== $filter) {
+                $result->addVersion($filter);
             }
         }
 

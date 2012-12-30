@@ -79,7 +79,7 @@ $app->get('/doc/{project}/{version}/{path}', function ($project, $version, $path
 
 $app->get('/version.json', function () {
     $changeLog      = ChangeLogFactory::getCache();
-    $currentVersion = current($changeLog->getVersions());
+    $currentVersion = $changeLog->getLastStableVersion();
 
     return json_encode(array(
         'version' => $currentVersion->getVersion(),

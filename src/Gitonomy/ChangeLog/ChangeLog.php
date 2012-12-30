@@ -23,4 +23,13 @@ class ChangeLog
 
         return $this;
     }
+
+    public function getLastStableVersion()
+    {
+        foreach ($this->getVersions() as $version) {
+            if (null !== $version->getDate()) {
+                return $version;
+            }
+        }
+    }
 }

@@ -8,20 +8,16 @@ class FilterFactory
 {
     static function createFromRequest(Request $request)
     {
-        $parameters      = $request->query;
-        $versionFilter   = null;
-        $featureFilter   = null;
-        $changeLogFilter = null;
+        $parameters = $request->query;
 
-        if ($parameters->has('levels')) {
-            $levels = explode(',', $parameters->get('levels'));
-            $featureFilter = new FeatureFilter($levels);
-        }
+        $version       = $parameters->get('from_version', null);
+        $versionFilter = new VersionFilter($version);
 
-        if ($parameters->has('from_version')) {
-            $versionFilter = new VersionFilter($parameters->get('from_version'), $featureFilter);
-        }
+        $levels        = explode(',', $parameters->get('levels', array()));
+        $featureFilter = new FeatureFilter($levels);
 
-        return null !== $versionFilter ? new ChangeLogFilter($versionFilter) : null;
+        $versionFilter->setFeatureFilter($featureFilter);
+
+        return new ChangeLogFilter($versionFilter);
     }
 }
