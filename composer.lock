@@ -1,6 +1,18 @@
 {
-    "hash": "5ceb6c4d91a1c0b332660959518cf36f",
+    "hash": "0580b4a46550ae08d239578e91ee36bb",
     "packages": [
+        {
+            "name": "fabpot/sphinx-php",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/sphinx-php.git",
+                "reference": "master"
+            },
+            "type": "library",
+            "installation-source": "source",
+            "time": "2012-12-20 15:27:01"
+        },
         {
             "name": "kriswallsmith/buzz",
             "version": "dev-master",
@@ -583,6 +595,7 @@
         "silex/silex": 20,
         "twig/twig": 20,
         "symfony/twig-bridge": 20,
+        "fabpot/sphinx-php": 20,
         "symfony/console": 20,
         "kriswallsmith/buzz": 20
     }
