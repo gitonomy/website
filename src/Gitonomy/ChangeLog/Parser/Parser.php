@@ -35,7 +35,7 @@ class Parser
             if ($this->expects('* ')) {
                 $version = $this->consumeTo("\n");
 
-                preg_match('#(?P<version>[^/]+) \((?P<date>[0-9]{4}-[0-9]{2}-[0-9]{2})\)#', $version, $versionData);
+                preg_match('#v(?P<version>[^/]+) \((?P<date>[0-9]{4}-[0-9]{2}-[0-9]{2})\)#', $version, $versionData);
 
                 if (array() === $versionData) {
                     $version = new Version($version);
