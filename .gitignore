@@ -1,3 +1,5 @@
 /cache
 /vendor
 /web/download
+composer.phar
+

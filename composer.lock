@@ -1,5 +1,5 @@
 {
-    "hash": "6918c9b0fd498afd6c5b4e2aaa04a260",
+    "hash": "0580b4a46550ae08d239578e91ee36bb",
     "packages": [
         {
             "name": "fabpot/sphinx-php",
@@ -11,7 +11,53 @@
             },
             "type": "library",
             "installation-source": "source",
-            "time": "2012-05-26 05:56:32"
+            "time": "2012-12-20 15:27:01"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/kriswallsmith/Buzz.git",
+                "reference": "988bf14201ffbed940f23b42f87302e6adec4c21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kriswallsmith/Buzz/archive/988bf14201ffbed940f23b42f87302e6adec4c21.zip",
+                "reference": "988bf14201ffbed940f23b42f87302e6adec4c21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "time": "2012-08-17 12:23:33",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ]
         },
         {
             "name": "pimple/pimple",
@@ -19,12 +65,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Pimple.git",
-                "reference": "86df0604a10c5faf20b466ae6a0b762cc6ed0a35"
+                "reference": "v1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Pimple/archive/86df0604a10c5faf20b466ae6a0b762cc6ed0a35.zip",
-                "reference": "86df0604a10c5faf20b466ae6a0b762cc6ed0a35",
+                "url": "https://github.com/fabpot/Pimple/archive/v1.0.1.zip",
+                "reference": "v1.0.1",
                 "shasum": ""
             },
             "require": {
@@ -66,12 +112,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Silex.git",
-                "reference": "5cfa54fce1e2c6c1072def1b79bfb69f4fbdf97e"
+                "reference": "e12731955739fc1a27d424bd76523acc3fdd6a84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Silex/archive/5cfa54fce1e2c6c1072def1b79bfb69f4fbdf97e.zip",
-                "reference": "5cfa54fce1e2c6c1072def1b79bfb69f4fbdf97e",
+                "url": "https://github.com/fabpot/Silex/archive/e12731955739fc1a27d424bd76523acc3fdd6a84.zip",
+                "reference": "e12731955739fc1a27d424bd76523acc3fdd6a84",
                 "shasum": ""
             },
             "require": {
@@ -106,7 +152,7 @@
                 "symfony/css-selector": ">=2.1,<2.3-dev",
                 "symfony/dom-crawler": ">=2.1,<2.3-dev"
             },
-            "time": "2012-11-30 10:40:25",
+            "time": "2012-12-30 15:36:44",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -141,18 +187,66 @@
             ]
         },
         {
+            "name": "symfony/console",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console",
+                "reference": "388ea8dbc1b3e1f96721e2799eb2d037e411a281"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Console/archive/388ea8dbc1b3e1f96721e2799eb2d037e411a281.zip",
+                "reference": "388ea8dbc1b3e1f96721e2799eb2d037e411a281",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2012-12-19 07:09:49",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com"
+        },
+        {
             "name": "symfony/event-dispatcher",
             "version": "dev-master",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher",
-                "reference": "eb290a447c0af5bea0d3de5d95d498afd8c82f89"
+                "reference": "ff78cb85890637367848856e06e564e890890ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/EventDispatcher/archive/eb290a447c0af5bea0d3de5d95d498afd8c82f89.zip",
-                "reference": "eb290a447c0af5bea0d3de5d95d498afd8c82f89",
+                "url": "https://github.com/symfony/EventDispatcher/archive/ff78cb85890637367848856e06e564e890890ec7.zip",
+                "reference": "ff78cb85890637367848856e06e564e890890ec7",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +259,7 @@
                 "symfony/dependency-injection": "2.2.*",
                 "symfony/http-kernel": "2.2.*"
             },
-            "time": "2012-11-13 14:08:04",
+            "time": "2012-12-19 07:09:49",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -202,18 +296,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation",
-                "reference": "caf375ec9520a19cc28d9e81f7dadb92a7c30eb4"
+                "reference": "65cdb4417e8d74e1a58701fce8c80a276489fcc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/HttpFoundation/archive/caf375ec9520a19cc28d9e81f7dadb92a7c30eb4.zip",
-                "reference": "caf375ec9520a19cc28d9e81f7dadb92a7c30eb4",
+                "url": "https://github.com/symfony/HttpFoundation/archive/65cdb4417e8d74e1a58701fce8c80a276489fcc5.zip",
+                "reference": "65cdb4417e8d74e1a58701fce8c80a276489fcc5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2012-11-30 22:41:06",
+            "time": "2012-12-29 13:43:44",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -253,12 +347,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel",
-                "reference": "b8d175c14bdf4eb9771690eae9718673dcca8408"
+                "reference": "635cca3a1341e2f66dff47a3fd8f6b308afb7077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/HttpKernel/archive/b8d175c14bdf4eb9771690eae9718673dcca8408.zip",
-                "reference": "b8d175c14bdf4eb9771690eae9718673dcca8408",
+                "url": "https://github.com/symfony/HttpKernel/archive/635cca3a1341e2f66dff47a3fd8f6b308afb7077.zip",
+                "reference": "635cca3a1341e2f66dff47a3fd8f6b308afb7077",
                 "shasum": ""
             },
             "require": {
@@ -285,7 +379,7 @@
                 "symfony/dependency-injection": "2.2.*",
                 "symfony/finder": "2.2.*"
             },
-            "time": "2012-11-24 12:13:43",
+            "time": "2012-12-28 23:07:33",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -322,12 +416,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing",
-                "reference": "1198e4e883628bc1dec64b75e7ec51142c7bff8b"
+                "reference": "87a66890450658ccac99702ac5e4f002ece9e23e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Routing/archive/1198e4e883628bc1dec64b75e7ec51142c7bff8b.zip",
-                "reference": "1198e4e883628bc1dec64b75e7ec51142c7bff8b",
+                "url": "https://github.com/symfony/Routing/archive/87a66890450658ccac99702ac5e4f002ece9e23e.zip",
+                "reference": "87a66890450658ccac99702ac5e4f002ece9e23e",
                 "shasum": ""
             },
             "require": {
@@ -344,7 +438,7 @@
                 "symfony/config": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "2012-11-28 11:31:05",
+            "time": "2012-12-28 13:21:48",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -381,12 +475,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/TwigBridge",
-                "reference": "7d1611d090ffec280dba5ce4ee68aea10b379e38"
+                "reference": "5f83b3f000eedc25e5fa538bd2ff928e21e2327c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/TwigBridge/archive/7d1611d090ffec280dba5ce4ee68aea10b379e38.zip",
-                "reference": "7d1611d090ffec280dba5ce4ee68aea10b379e38",
+                "url": "https://github.com/symfony/TwigBridge/archive/5f83b3f000eedc25e5fa538bd2ff928e21e2327c.zip",
+                "reference": "5f83b3f000eedc25e5fa538bd2ff928e21e2327c",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +493,8 @@
                 "symfony/templating": "2.2.*",
                 "symfony/translation": "2.2.*",
                 "symfony/yaml": "2.2.*",
-                "symfony/security": "2.2.*"
+                "symfony/security": "2.2.*",
+                "symfony/http-kernel": "2.2.*"
             },
             "suggest": {
                 "symfony/form": "2.2.*",
@@ -407,9 +502,10 @@
                 "symfony/templating": "2.2.*",
                 "symfony/translation": "2.2.*",
                 "symfony/yaml": "2.2.*",
-                "symfony/security": "2.2.*"
+                "symfony/security": "2.2.*",
+                "symfony/http-kernel": "2.2.*"
             },
-            "time": "2012-11-19 15:05:18",
+            "time": "2012-12-22 14:51:06",
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
@@ -445,18 +541,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "6810dbe8a7be204813a4397b1bddcfdb875fe2e2"
+                "reference": "25f7b0c7eb456f5c39f1e8163da538de5d0d717b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/6810dbe8a7be204813a4397b1bddcfdb875fe2e2.zip",
-                "reference": "6810dbe8a7be204813a4397b1bddcfdb875fe2e2",
+                "url": "https://github.com/fabpot/Twig/archive/25f7b0c7eb456f5c39f1e8163da538de5d0d717b.zip",
+                "reference": "25f7b0c7eb456f5c39f1e8163da538de5d0d717b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-12-01 18:41:29",
+            "time": "2012-12-30 20:07:31",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -499,6 +595,8 @@
         "silex/silex": 20,
         "twig/twig": 20,
         "symfony/twig-bridge": 20,
-        "fabpot/sphinx-php": 20
+        "fabpot/sphinx-php": 20,
+        "symfony/console": 20,
+        "kriswallsmith/buzz": 20
     }
 }

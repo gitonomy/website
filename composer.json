@@ -6,13 +6,15 @@
         "silex/silex": "dev-master",
         "twig/twig": "dev-master",
         "symfony/twig-bridge": "dev-master",
-        "fabpot/sphinx-php": "dev-master"
+        "fabpot/sphinx-php": "dev-master",
+        "symfony/console": "dev-master",
+        "kriswallsmith/buzz": "dev-master"
     },
     "minimum-stability": "dev",
 
     "autoload": {
         "psr-0" : {
-            "Gitonomy\\Documentation" : "src/"
+            "Gitonomy" : "src/"
         }
     },
 
