@@ -12,6 +12,10 @@
 
 namespace Gitonomy\ChangeLog\Parser;
 
+use Gitonomy\ChangeLog\ChangeLog;
+use Gitonomy\ChangeLog\Node\Version;
+use Gitonomy\ChangeLog\Node\Feature;
+
 class Parser
 {
     protected $cursor;
@@ -23,6 +27,41 @@ class Parser
         $this->cursor  = 0;
         $this->content = $content;
         $this->length  = strlen($this->content);
+
+        $changeLog = new ChangeLog();
+
+        while (!$this->isFinished()) {
+
+            if ($this->expects('* ')) {
+                $version = $this->consumeTo("\n");
+
+                preg_match('#(?P<version>[^/]+) \((?P<date>[0-9]{4}-[0-9]{2}-[0-9]{2})\)#', $version, $versionData);
+
+                if (array() === $versionData) {
+                    $version = new Version($version);
+                } else {
+                    $version = new Version($versionData['version'], $versionData['date']);
+                }
+
+                $changeLog->addVersion($version);
+            }
+
+            if ($this->expects('  * ')) {
+                $feature = $this->consumeTo("\n");
+
+                preg_match('#(?P<level>\w+) (?P<feature>[^.]+)#', $feature, $featureData);
+
+                if (null === $version) {
+                    continue;
+                }
+
+                $version->addFeature(new Feature($featureData['level'], $featureData['feature']));
+            }
+
+            $this->consumeNewLine();
+        }
+
+        return $changeLog;
     }
 
     public function isFinished()

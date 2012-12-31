@@ -7,13 +7,11 @@ use Gitonomy\ChangeLog\Node\Version;
 class VersionFilter
 {
     protected $featureFilter;
-    protected $lastVersion;
-    protected $executed;
+    protected $minimumVersion;
 
-    public function __construct($lastVersion)
+    public function __construct($minimumVersion)
     {
-        $this->executed    = false;
-        $this->lastVersion = $lastVersion;
+        $this->minimumVersion = $minimumVersion;
     }
 
     public function setFeatureFilter(FeatureFilter $featureFilter)
@@ -23,29 +21,25 @@ class VersionFilter
 
     public function filter(Version $version)
     {
-        if ($this->isTrue($version)) {
-            $result = new Version($version->getVersion(), $version->getDate());
-
-            foreach ($version->getFeatures() as $feature) {
-                if (null === $this->featureFilter) {
-                    $result->addFeature($feature);
-                } elseif (null !== $filter = $this->featureFilter->filter($feature)) {
-                    $result->addFeature($filter);
-                }
-            }
-
-            return $result;
+        if (!$this->isTrue($version)) {
+            return;
         }
 
-        return;
+        $result = new Version($version->getVersion(), $version->getDate());
+
+        foreach ($version->getFeatures() as $feature) {
+            if (null === $this->featureFilter) {
+                $result->addFeature($feature);
+            } elseif (null !== $filter = $this->featureFilter->filter($feature)) {
+                $result->addFeature($filter);
+            }
+        }
+
+        return $result;
     }
 
     protected function isTrue(Version $version)
     {
-        if ($version->getVersion() === $this->lastVersion) {
-            $this->executed = true;
-        }
-
-        return !$this->executed;
+        return version_compare($this->minimumVersion, $version->getVersion()) < 0;
     }
 }

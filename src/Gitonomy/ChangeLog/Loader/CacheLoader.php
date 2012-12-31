@@ -2,16 +2,33 @@
 
 namespace Gitonomy\ChangeLog\Loader;
 
-class CacheLoader
-{
-    const DEFAULT_FILE = '/../../../../cache/changelog.json';
+use Gitonomy\ChangeLog\ChangeLog;
 
-    public function load($file = null)
+class CacheLoader implements LoaderInterface
+{
+    protected $file;
+    protected $fallback;
+
+    public function __construct(LoaderInterface $fallback, $file)
     {
-        if (null === $file) {
-            $file = self::DEFAULT_FILE;
+        $this->fallback = $fallback;
+        $this->file     = $file;
+    }
+
+    public function load()
+    {
+        if (file_exists($this->file)) {
+            return Changelog::fromArray(json_decode(file_get_contents($this->file), true));
         }
 
-        return json_decode(file_get_contents(__DIR__.$file), true);
+        return $this->refresh();
+    }
+
+    public function refresh()
+    {
+        $changelog = $this->fallback->load();
+        file_put_contents($this->file, json_encode($changelog->toArray()));
+
+        return $changelog;
     }
 }

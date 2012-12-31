@@ -5,23 +5,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use Gitonomy\ChangeLog\ChangeLogFactory;
 use Gitonomy\ChangeLog\Filter\FilterFactory;
 use Gitonomy\Documentation\Documentation;
 
-$app = new Silex\Application();
+$app = new Gitonomy\Application();
 $app['debug'] = true;
-
-$app['gitlib.documentation'] = function ($app) {
-    return new Documentation(array(
-        'master' => __DIR__.'/../cache/doc/gitlib/json/master'
-    ));
-};
-$app['gitonomy.documentation'] = function ($app) {
-    return new Documentation(array(
-        'master' => __DIR__.'/../cache/doc/gitonomy/json/master'
-    ));
-};
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
@@ -29,7 +17,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'cache' => __DIR__.'/../cache/twig'
     )
 ));
-
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 $app->get('/', function() use($app) {
@@ -51,7 +38,6 @@ $app->get('/features', function() use($app) {
     return $app['twig']->render('pages/features.html.twig');
 })
 ->bind('features');
-
 
 $app->get('/doc/{project}/{version}/{path}', function ($project, $version, $path) use ($app) {
         if (!in_array($project, array('gitlib', 'gitonomy'))) {
@@ -77,8 +63,8 @@ $app->get('/doc/{project}/{version}/{path}', function ($project, $version, $path
     ->bind('documentation')
 ;
 
-$app->get('/version.json', function () {
-    $changeLog      = ChangeLogFactory::getCache();
+$app->get('/version.json', function () use ($app) {
+    $changeLog      = $app['gitonomy.changelog'];
     $currentVersion = $changeLog->getLastStableVersion();
 
     return json_encode(array(
@@ -88,11 +74,10 @@ $app->get('/version.json', function () {
 });
 
 
-$app->get('/changelog.json', function (Request $request) {
-    $filter    = FilterFactory::createFromRequest($request);
-    $changeLog = ChangeLogFactory::getCache($filter);
+$app->get('/changelog.json', function (Request $request) use ($app) {
+    $changelog = FilterFactory::createFromRequest($request)->filter($app['gitonomy.changelog']);
 
-    return json_encode(ChangeLogFactory::toArray($changeLog));
+    return json_encode($changelog->toArray());
 });
 
 $app->run();

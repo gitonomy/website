@@ -1,27 +1,20 @@
 <?php
 
-use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Gitonomy\ChangeLog\ChangeLogFactory;
+$app = new Gitonomy\Application();
+$console = new ConsoleApplication('Gitonomy Website', '0.1');
 
-$console = new Application('Gitonomy Website', '0.1');
-
-$console->register( 'generate:changelog' )
-    ->setDefinition(array(
-        new InputOption('url', null, InputOption::VALUE_OPTIONAL, 'URL of markdown file'),
-    ))
+$console->register('generate:changelog')
     ->setDescription('Generate the changelog page from a changelog markdown file')
-    ->setHelp('Usage: <info>./console.php generate-changelog [--url=<file>]</info>')
+    ->setHelp('Usage: <info>./console.php generate-changelog</info>')
     ->setCode(
-        function(InputInterface $input, OutputInterface $output) {
-            $url = $input->getOption('url');
+        function(InputInterface $input, OutputInterface $output) use ($app) {
+            $changelog = $app['gitonomy.changelog.cache']->refresh();
 
-            $changeLog = ChangeLogFactory::createFromGithub($url);
-            $json = ChangeLogFactory::toJson($changeLog);
-            file_put_contents(__DIR__.'/../cache/changelog.json', $json);
+            $output->writeln(sprintf("<info>Changelog</info> refreshed. Last version: <info>%s</info>", $changelog->getLastStableVersion()->getVersion()));
         }
     )
 ;

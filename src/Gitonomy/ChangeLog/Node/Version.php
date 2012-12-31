@@ -36,4 +36,30 @@ class Version
 
         return $this;
     }
+
+    public function toArray()
+    {
+        $version = array(
+            'version'  => $this->getVersion(),
+            'date'     => $this->getDate(),
+            'features' => array(),
+        );
+
+        foreach ($this->getFeatures() as $feature) {
+            array_push($version['features'], $feature->toArray());
+        }
+
+        return $version;
+    }
+
+    static public function fromArray(array $array)
+    {
+        $version = new Version($array['version'], $array['date']);
+
+        foreach ($array['features'] as $feature) {
+            $version->addFeature(Feature::fromArray($feature));
+        }
+
+        return $version;
+    }
 }

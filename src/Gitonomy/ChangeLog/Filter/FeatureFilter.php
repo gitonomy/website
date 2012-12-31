@@ -8,7 +8,7 @@ class FeatureFilter
 {
     protected $levels;
 
-    public function __construct($levels = null)
+    public function __construct(array $levels)
     {
         $this->levels = $levels;
     }
@@ -24,6 +24,6 @@ class FeatureFilter
 
     protected function isTrue(Feature $feature)
     {
-        return null === $this->levels || in_array($feature->getLevel(), $this->levels);
+        return in_array($feature->getLevel(), $this->levels);
     }
 }

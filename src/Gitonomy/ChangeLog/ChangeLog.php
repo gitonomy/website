@@ -32,4 +32,25 @@ class ChangeLog
             }
         }
     }
+
+    public function toArray()
+    {
+        $versions = array();
+        foreach ($this->getVersions() as $version) {
+            array_push($versions, $version->toArray());
+        }
+
+        return $versions;
+    }
+
+    static public function fromArray(array $array)
+    {
+        $changelog = new ChangeLog();
+
+        foreach ($array as $version) {
+            $changelog->addVersion(Version::fromArray($version));
+        }
+
+        return $changelog;
+    }
 }

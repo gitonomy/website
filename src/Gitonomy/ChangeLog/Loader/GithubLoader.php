@@ -5,24 +5,25 @@ namespace Gitonomy\ChangeLog\Loader;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 
-class GithubLoader
+use Gitonomy\ChangeLog\Parser\Parser;
+
+class GithubLoader implements LoaderInterface
 {
-    const DEFAULT_URL = 'http://github.com/gitonomy/gitonomy/raw/master/CHANGELOG.md';
+    const URL = 'http://github.com/gitonomy/gitonomy/raw/master/CHANGELOG.md';
 
-    public function load($url = null)
+    public function load()
     {
-        if (null === $url) {
-            $url = self::DEFAULT_URL;
-        }
-
         $browser = new Browser(new Curl());
-        $browser->get($url);
+        $browser->get(self::URL);
         $response = $browser->getLastResponse();
 
         if (!$response->isSuccessful()) {
             throw new \LogicException($response->getStatusCode().' - '.$response->getReasonPhrase());
         }
 
-        return $response->getContent();
+        $content = $response->getContent();
+        $parser  = new Parser();
+
+        return $parser->parse($content);
     }
 }

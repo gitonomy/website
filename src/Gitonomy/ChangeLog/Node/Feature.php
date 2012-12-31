@@ -22,4 +22,17 @@ class Feature
     {
         return $this->feature;
     }
+
+    public function toArray()
+    {
+        return array(
+            'level'   => $this->getLevel(),
+            'feature' => $this->getFeature(),
+        );
+    }
+
+    static public function fromArray(array $array)
+    {
+        return new Feature($array['level'], $array['feature']);
+    }
 }
