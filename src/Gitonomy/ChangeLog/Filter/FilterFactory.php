@@ -11,7 +11,8 @@ class FilterFactory
         $parameters = $request->query;
 
         $version = $parameters->get('from_version', 0.0);
-        $filter  = new VersionFilter($version);
+        $stable = $parameters->get('stable', true);
+        $filter  = new VersionFilter($version, ($stable === 'false' ? false : $stable));
 
         return new ChangeLogFilter($filter);
     }
