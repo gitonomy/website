@@ -10,16 +10,9 @@ class FilterFactory
     {
         $parameters = $request->query;
 
-        $version       = $parameters->get('from_version', 0.0);
-        $versionFilter = new VersionFilter($version);
+        $version = $parameters->get('from_version', 0.0);
+        $filter  = new VersionFilter($version);
 
-        if ($parameters->has('levels')) {
-            $levels        = explode(',', $parameters->get('levels'));
-            $featureFilter = new FeatureFilter($levels);
-
-            $versionFilter->setFeatureFilter($featureFilter);
-        }
-
-        return new ChangeLogFilter($versionFilter);
+        return new ChangeLogFilter($filter);
     }
 }
