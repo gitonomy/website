@@ -22,6 +22,12 @@ class Application extends SilexApplication
             ));
         };
 
+        $this['gitonomy.documentation'] = function ($app) {
+            return new Documentation(array(
+                'master' => __DIR__.'/../../cache/doc/gitonomy/json/master'
+            ));
+        };
+
         $this['gitonomy.changelog.cache'] = function ($app) {
             return new CacheLoader(new GithubLoader(), __DIR__.'/../../cache/changelog.json');
         };
