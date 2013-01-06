@@ -5,7 +5,7 @@ namespace Gitonomy\ChangeLog\Loader;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 
-use Gitonomy\ChangeLog\Parser\Parser;
+use Gitonomy\ChangeLog\Parser\ChangeLogParser;
 
 class GithubLoader implements LoaderInterface
 {
@@ -22,7 +22,7 @@ class GithubLoader implements LoaderInterface
         }
 
         $content = $response->getContent();
-        $parser  = new Parser();
+        $parser  = new ChangeLogParser();
 
         return $parser->parse($content);
     }

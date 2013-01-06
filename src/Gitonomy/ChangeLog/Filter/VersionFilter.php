@@ -6,17 +6,13 @@ use Gitonomy\ChangeLog\Node\Version;
 
 class VersionFilter
 {
-    protected $featureFilter;
     protected $minimumVersion;
+    protected $stable;
 
-    public function __construct($minimumVersion)
+    public function __construct($minimumVersion, $stable = true)
     {
         $this->minimumVersion = $minimumVersion;
-    }
-
-    public function setFeatureFilter(FeatureFilter $featureFilter)
-    {
-        $this->featureFilter = $featureFilter;
+        $this->stable         = (bool)$stable;
     }
 
     public function filter(Version $version)
@@ -28,11 +24,7 @@ class VersionFilter
         $result = new Version($version->getVersion(), $version->getDate());
 
         foreach ($version->getFeatures() as $feature) {
-            if (null === $this->featureFilter) {
-                $result->addFeature($feature);
-            } elseif (null !== $filter = $this->featureFilter->filter($feature)) {
-                $result->addFeature($filter);
-            }
+            $result->addFeature($feature);
         }
 
         return $result;
@@ -40,6 +32,9 @@ class VersionFilter
 
     protected function isTrue(Version $version)
     {
-        return version_compare($this->minimumVersion, $version->getVersion()) < 0;
+        return (
+            (!$this->stable && null === $version->getDate()) ||
+            (version_compare($this->minimumVersion, $version->getVersion()) < 0 && null !== $version->getDate())
+        );
     }
 }
