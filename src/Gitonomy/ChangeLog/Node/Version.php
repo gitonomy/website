@@ -2,7 +2,7 @@
 
 namespace Gitonomy\ChangeLog\Node;
 
-class Version
+class Version implements \IteratorAggregate
 {
     protected $version;
     protected $date;
@@ -61,5 +61,10 @@ class Version
         }
 
         return $version;
+    }
+
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->features);
     }
 }

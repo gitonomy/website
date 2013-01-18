@@ -10,7 +10,7 @@
         <div class="span4">
             <h3>Stable release</h3>
             <p>
-                <a class="btn btn-large btn-success" href="/downloads/v0.2.tar.gz"><i class="icon-file icon-white"></i> Download stable version (v0.2)</a>
+                <a class="btn btn-large btn-success" href="/downloads/v0.3.tar.gz"><i class="icon-file icon-white"></i> Download stable version (v0.3)</a>
             </p>
         </div>
         <div class="span4">
@@ -20,4 +20,39 @@
             </p>
         </div>
     </div>
+    <h2>Changelog</h2>
+
+    {% for version in changeLog %}
+        <legend>
+            {% if version.date == '' %}
+                master
+            {% else %}
+                v{{ version.version }} ({{ version.date }})
+            {% endif %}
+        </legend>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>level</th>
+                    <th>feature</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feature in version.features %}
+                    <tr>
+                        <td>
+                            {% if feature.level is sameas ('security') %}
+                                <i class="icon-bullhorn"></i>
+                            {% elseif feature.level is sameas ('new') %}
+                                <i class="icon-gift"></i>
+                            {% elseif feature.level is sameas ('fix') %}
+                                <i class="icon-ban-circle"></i>
+                            {% endif %}
+                        </td>
+                        <td>{{ feature.feature }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
 {% endblock %}

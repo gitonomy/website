@@ -30,7 +30,12 @@ $app->get('/demo', function() use($app) {
 ->bind('demo');
 
 $app->get('/download', function() use($app) {
-    return $app['twig']->render('pages/download.html.twig');
+    $changeLog      = $app['gitonomy.changelog'];
+    $currentVersion = $changeLog->getLastStableVersion();
+
+    return $app['twig']->render('pages/download.html.twig', array(
+        'changeLog' => $changeLog,
+    ));
 })
 ->bind('download');
 

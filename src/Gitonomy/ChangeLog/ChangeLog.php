@@ -4,7 +4,7 @@ namespace Gitonomy\ChangeLog;
 
 use Gitonomy\ChangeLog\Node\Version;
 
-class ChangeLog
+class ChangeLog implements \IteratorAggregate
 {
     protected $versions;
 
@@ -52,5 +52,10 @@ class ChangeLog
         }
 
         return $changelog;
+    }
+
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->versions);
     }
 }
