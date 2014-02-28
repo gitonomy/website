@@ -3,33 +3,17 @@
     "description": "Sourcecode of gitonomy.com",
 
     "require": {
-        "silex/silex": "dev-master",
-        "twig/twig": "dev-master",
-        "symfony/twig-bridge": "dev-master",
-        "fabpot/sphinx-php": "dev-master",
-        "symfony/console": "dev-master",
-        "kriswallsmith/buzz": "dev-master"
+        "silex/silex": "~1.1",
+        "twig/twig": "~1.15",
+        "symfony/twig-bridge": "~2.4",
+        "symfony/console": "~2.4",
+        "fabpot/sphinx-php": "~1.0",
+        "kriswallsmith/buzz": "~0.10"
     },
-    "minimum-stability": "dev",
 
     "autoload": {
         "psr-0" : {
             "Gitonomy" : "src/"
         }
-    },
-
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "fabpot/sphinx-php",
-                "version": "master",
-                "source": {
-                    "url":       "https://github.com/fabpot/sphinx-php.git",
-                    "type":      "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ]
+    }
 }
