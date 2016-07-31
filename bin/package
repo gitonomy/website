@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+cd "`dirname "$0"`"/..
+
+composer install -o --no-dev
+
+mkdir -p cache
+rm -rf cache/*
+rm -rf web/downloads/*
+
+tar -cvzf package.tgz \
+    bin/conf.py \
+    bin/doc-cache.sh \
+    bin/pack.sh \
+    cache \
+    src \
+    vendor \
+    views \
+    web \
+    console
